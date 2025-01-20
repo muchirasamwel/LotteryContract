@@ -10,7 +10,7 @@ contract Lottery {
    }
 
    function joinDraw() external payable{
-      require(msg.value > 1 ether,"You need to send atleast 0.0011 ether");
+      require(msg.value > 0.0009 ether,"You need to send atleast 0.0011 ether");
       players.push(payable (msg.sender));
    }
 

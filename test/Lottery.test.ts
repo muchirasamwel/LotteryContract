@@ -25,4 +25,25 @@ describe("Lottery contract", function () {
   it("Manager is the contrant owner", async () => {
     expect(await lotteryContract.manager()).to.equal(owner);
   });
+
+  it("An address can join draw", async () => {
+    await lotteryContract
+      .connect(account1)
+      .joinDraw({ value: ethers.parseEther("0.001") });
+    const players = await lotteryContract.getPlayers();
+    expect(players).to.include(account1.address);
+  });
+
+  it("An address cant join draw without enough ether", async () => {
+    try {
+      await lotteryContract
+        .connect(account2)
+        .joinDraw({ value: ethers.parseEther("0.000001") });
+    } catch (error: any) {
+      // console.log("error.message", error.message);
+      expect(error.message).to.include("reverted");
+    }
+    const players = await lotteryContract.getPlayers();
+    expect(players).not.to.include(account2.address);
+  });
 });

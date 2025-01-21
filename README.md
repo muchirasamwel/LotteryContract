@@ -11,6 +11,9 @@ USE this address to test on sepolia testnet `0xb69B367c0720B053d2692B74D9aa2C257
 Try
 
 ```shell
+yarn
+
 npx hardhat test
+
 REPORT_GAS=true npx hardhat test
 ```

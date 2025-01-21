@@ -12,7 +12,8 @@ describe("Lottery contract", function () {
   let lotteryContract: Lottery & {
     deploymentTransaction(): ContractTransactionResponse;
   };
-  this.beforeEach(async () => {
+
+  this.beforeAll(async () => {
     [owner, account1, account2] = await ethers.getSigners();
 
     const lotteryFactory = await ethers.getContractFactory("Lottery");
@@ -45,5 +46,21 @@ describe("Lottery contract", function () {
     }
     const players = await lotteryContract.getPlayers();
     expect(players).not.to.include(account2.address);
+  });
+
+  it("Non Manager cant pick a winner", async () => {
+    try {
+      await lotteryContract.connect(account2).pickWinner();
+    } catch (error: any) {
+      // console.log("error.message", error.message);
+      expect(error.message).to.include("reverted");
+    }
+  });
+
+  it("Manager can pick a winner", async () => {
+    const tx = await lotteryContract.connect(owner).pickWinner();
+    const receipt = await tx.wait();
+    // console.log(receipt?.logs, receipt.logs[0].fragment.name);
+    expect(receipt?.logs[0].fragment?.name).to.equal("DrawClosed");
   });
 });

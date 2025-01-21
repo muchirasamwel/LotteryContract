@@ -2,7 +2,7 @@
 
 This project demonstrates a basic lottery project with full tests on the contract methods:
 
-# TEST LINK
+## Live Test Link
 
 USE this address to test on sepolia testnet `0xb69B367c0720B053d2692B74D9aa2C2577E3307A`
 

@@ -23,5 +23,9 @@
   },
   "dependencies": {
     "dotenv": "^16.4.7"
+  },
+  "scripts": {
+    "deploySepoliaTestNet": "npx hardhat ignition deploy ignition/modules/Lottery.ts --network sepoliaTestNet",
+    "deployLocal": "npx hardhat ignition deploy ignition/modules/Lottery.ts --network localhost"
   }
 }

@@ -4,9 +4,9 @@ This project demonstrates a basic lottery project with full tests on the contrac
 
 ## Live Test Link
 
-USE this address to test on sepolia testnet `0xb69B367c0720B053d2692B74D9aa2C2577E3307A`
+USE this address to test on sepolia testnet `0x6cc78035CbF00111eB3fC03CE521e91000951C4D`
 
-[Sepolia test net](https://sepolia.etherscan.io/address/0xb69b367c0720b053d2692b74d9aa2c2577e3307a)
+[Sepolia test net](https://sepolia.etherscan.io/address/0x6cc78035CbF00111eB3fC03CE521e91000951C4D)
 
 Try
 

@@ -26,7 +26,7 @@ contract Lottery {
       players = new address payable [](0);
    }
 
-   function getPlayers() external view restricted returns (address payable [] memory){
+   function getPlayers() external view returns (address payable [] memory){
       return players;
    }
 

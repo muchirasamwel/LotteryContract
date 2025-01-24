@@ -13,8 +13,9 @@ const Button = (props: Props) => {
   return (
     <button
       {...rest}
+      disabled={loading}
       className={
-        "py-2 px-3 my-2 bg-green-700 rounded-full font-semibold hover:bg-green-500 transition-all flex flex-row justify-center items-center " +
+        "py-2 px-3 my-2 bg-green-700 rounded-full font-semibold hover:bg-green-500 transition-all flex flex-row justify-center items-center disabled:cursor-not-allowed " +
         props.className
       }
     >
